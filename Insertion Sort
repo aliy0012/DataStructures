@@ -1,0 +1,13 @@
+int[] arr;
+public static void insertionSort() {
+		System.out.println("Insertion Sort);
+		for(int i = 1; i < arr.length; i++) {
+			int k = numbers[i];
+			int z = i - 1;
+			while((z > -1) && (arr[z] > k)) {
+				arr[z + 1] = arr [z];
+				z--;
+			}
+			arr[z + 1] = k;
+		}
+	}
