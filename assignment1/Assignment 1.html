@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body style="font-family: verdana, sans-serif;font-size: 12px;">
+<h1>Version Information:</h1>
+<ul>
+<li>Version: 7</li>
+<li>Last Edited: May 27, 2021</li>
+<li>Changelog:
+<table border="1" style="border-style: solid; border-color: black; height: 180px; width: 592px;">
+<tbody>
+<tr style="height: 18px;">
+<td style="height: 18px; width: 52.375px;">Version</td>
+<td style="height: 18px; width: 525.261px;">Description</td>
+</tr>
+<tr style="height: 18px;">
+<td style="height: 18px; width: 52.375px;">1</td>
+<td style="height: 18px; width: 525.261px;">Initial Version</td>
+</tr>
+<tr style="height: 18px;">
+<td style="height: 18px; width: 52.375px;">2</td>
+<td style="height: 18px; width: 525.261px;">Updated Class Diagram - Inventory array was incorrectly defined as an int</td>
+</tr>
+<tr style="height: 54px;">
+<td style="width: 52.375px; height: 54px;">3</td>
+<td style="width: 525.261px; height: 54px;">Removed the phrase " and another dynamically allocated array to hold the on hand items for sale" as I removed that requirement when iterating the assignment.</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 52.375px; height: 18px;">4</td>
+<td style="width: 525.261px; height: 18px;">Added expected behavior if a duplicate item code is encountered</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 52.375px; height: 18px;">5</td>
+<td style="width: 525.261px; height: 18px;">Quantity at input cannot be negative</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 52.375px; height: 18px;">6</td>
+<td style="width: 525.261px; height: 18px;">Added Sample Output</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 52.375px; height: 18px;">7</td>
+<td style="width: 525.261px; height: 18px;">Changed wording to mirror requirements in sample output.</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p>As you do the assignment, rely on this Brightspace set of instructions and not on a downloaded copy.</p>
+<h1>The Rules</h1>
+<ol>
+<li>You MUST use the <strong>default</strong> package in your assignment so that we can compile and run your program easily.&nbsp;</li>
+<li>ALL data members <strong>MUST</strong> be declared as <strong>private</strong> (or protected in the Base class when necessary only). Remember, private variables can be accessed as long as you are in the same CLASS.</li>
+<li>Your program must be written using Object Oriented Principles (as outlined in the course notes and previous courses) and with efficiency in mind, you may lose marks for inefficient code.</li>
+<li>Never leave compile warnings, address them without suppressing them!</li>
+<li>A solution that does not compile will receive a grade of 0.</li>
+<li>This assignment is to be completed individually - its NOT group work.&nbsp; If any requirement is not clear please ask your professor.&nbsp;</li>
+</ol>
+<h1>Problem Description</h1>
+<p>In this assignment, you will write efficient Java code to create a basic inventory system for a produce stand using a dynamically allocated data structure to hold the inventory. Your code must handle every single possible condition and never crash. The inventory system will contain three types of items &ndash; fruit that is purchased from an orchard for resale; vegetables that are purchased from a farm for resale; and preserves that are made by the produce stand themselves for sale. Our program will run with a basic menu that allows the user to add an item to inventory, display to the screen the inventory, buy an item (i.e. add to the quantity of that item) and sell an item (i.e. subtract from the quantity of that item). You are allowed to buy and sell any item (fruit, vegetable or preserve) in the inventory.</p>
+<p><strong>Hint</strong>: This assignment needs to be tackled in a structured fashion in order for it to be finished quickly. Do not write more than 20-30 lines of code at a time without running your program. Enjoy!!</p>
+<h1>Requirements</h1>
+<ol>
+<li>You must also submit a test plan for the functionality created in this assignment.&nbsp; You can use this&nbsp;<a href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=350477&amp;type=content&amp;rcode=5D0A62E3-9FCD-4186-8FE2-4DAA73394FE0-3810963" target="_self">Test Plan Template</a>.</li>
+<li>Create classes according to the class diagram below. You must adhere to the exact naming, parameters and return values in the class diagram as we will rely on this when marking. You may disregard the yellow folder icon in the vegetable class in the diagram. It will help to read the written requirements outlined below so you don't get muddied in the class diagram.<br /><img src="/content/enforced/227138-20W_CST8130_300/Assignment%201.png" alt="Class Diagram" title="Class Diagram" style="max-width: 100%;" data-d2l-editor-default-img-style="true" /><br />
+<ul>
+<li>All data members must never be public.&nbsp; You should make them all private unless they are in a base class AND they are needed in the child classes</li>
+<li>For this assignment, we will limit the inventory array to a maximum of 20 entries</li>
+<li>Notes on the FoodItem class:
+<table border="1" style="width: 80%; border-style: solid; border-color: black; height: 177px;">
+<thead>
+<tr style="background-color: #c0c0c0; text-align: left; vertical-align: middle;">
+<td style="width: 20%;">Method</td>
+<td style="width: 80%;">Additional Information</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="width: 20%;">toString</td>
+<td style="width: 80%;">
+<p>Displays the all data members in the class</p>
+</td>
+</tr>
+<tr>
+<td style="width: 20%;">addItem</td>
+<td style="width: 80%;">
+<p>Reads from the Scanner object passed in and fills the data member fields of the class with valid data; <br />Method returns true if program successfully reads in all fields, otherwise returns false</p>
+</td>
+</tr>
+<tr>
+<td style="width: 20%;">updateItem</td>
+<td style="width: 80%;">
+<p>Updates the quantity field by amount (note amount could be positive or negative);<br />Method returns true if successful, otherwise returns false<br /><strong>Note:</strong>&nbsp;<em>itemQuantityInStock</em> field can never be less than 0.</p>
+</td>
+</tr>
+<tr>
+<td style="width: 20%;">isEqual</td>
+<td style="width: 80%;">Method&nbsp;returns true if the <em>itemCode</em> of the object being acted on and the item object parameter are the same value</td>
+</tr>
+<tr>
+<td style="width: 20%;">inputCode</td>
+<td style="width: 80%;">Reads a valid <em>itemCode</em> from the Scanner object and returns true/false if successful</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>Notes on the Fruit, Vegetable and Preserve classes, see above table for additional information on the methods with the same name.</li>
+<li>Notes on the Inventory class:
+<table border="1" style="width: 80%; border-style: solid; border-color: black; height: 56px;">
+<thead>
+<tr style="background-color: #c0c0c0; text-align: left; vertical-align: middle; height: 14px;">
+<td style="width: 20%; height: 14px;">Method</td>
+<td style="width: 80%; height: 14px;">Additional Information</td>
+</tr>
+</thead>
+<tbody>
+<tr style="height: 14px;">
+<td style="width: 20%; height: 14px;">addItem</td>
+<td style="width: 80%; height: 14px;">Adds an item to the <em>inventory</em> array &ndash; (uses polymorphism to call <em>addItem</em> method in the correct derived <em>FoodItem</em> class for input of the fields of the FoodItem)</td>
+</tr>
+<tr style="height: 14px;">
+<td style="width: 20%; height: 14px;">alreadyExists</td>
+<td style="width: 80%; height: 14px;">Returns the index of a <em>FoodItem</em> in the <em>inventory</em> array with the same <em>itemCode</em> as the <em>FoodItem</em> object in the parameter list, else returns -1</td>
+</tr>
+<tr style="height: 14px;">
+<td style="width: 20%; height: 14px;">updateQuantity</td>
+<td style="width: 80%; height: 14px;">Reads in an <em>itemCode</em> to update and quantity to update by and updates that item by the input quantity in the <em>inventory</em> array. <br />The boolean parameter is used to denote whether buying operation (true) or selling operation (false) is occurring. <br />Method returns true/false on whether update was successful or not</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>Notes on Assign1 class:
+<table border="1" style="width: 80%; border-style: solid; border-color: black;">
+<thead>
+<tr style="background-color: #c0c0c0; text-align: left; vertical-align: middle;">
+<td style="width: 20%;">Method</td>
+<td style="width: 80%;">Additional Information</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>main</td>
+<td>Main method of the program</td>
+</tr>
+<tr>
+<td>displayMenu</td>
+<td>Displays the main menu to the console</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+<li>Create a console application that will display the following menu repeatedly until the user selects the exit item.&nbsp; Ensure that your program will never crash nor exit in any other circumstances.&nbsp; The menu should be displayed again if an incorrect value is entered (i.e. a number that is not between 1-5 or any other character) after displaying the error message "Incorrect value entered".<br />The menu should look exactly like this:&nbsp;
+<table style="width: 372px; border-style: solid; border-color: black;" border="1">
+<tbody>
+<tr>
+<td style="width: 367.841px;">
+<pre><span style="font-family: 'courier new', courier, sans-serif;">Please select one of the following:</span><br /><span style="font-family: 'courier new', courier, sans-serif;">1: Add Item to Inventory</span><br /><span style="font-family: 'courier new', courier, sans-serif;">2: Display Current Inventory</span><br /><span style="font-family: 'courier new', courier, sans-serif;">3: Buy Item(s)</span><br /><span style="font-family: 'courier new', courier, sans-serif;">4: Sell Item(s)</span><br /><span style="font-family: 'courier new', courier, sans-serif;">5: To Exit</span><br /><span style="font-family: 'courier new', courier, sans-serif;">&gt; <span style="font-size: 9pt; color: #009e0f;">&lt;must be a number between 1 - 5&gt;</span></span></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>When '1' is chosen by the user, the user needs to enter additional information.&nbsp; When the user choses to enter a fruit, the program should ask the user which kind and then ask for follow up data as in the following table:
+<table style="height: 56px; width: 80%; border-color: black; border-style: solid;" border="1">
+<tbody>
+<tr style="height: 14px;">
+<td style="width: 100%; height: 14px;" colspan="2"><span style="font-family: 'courier new', courier, sans-serif;">Do you wish to add a fruit(f), vegetable(v) or a preserve(p)? <span style="color: #009e0f;">&lt;user enters f,v, or p&gt;</span></span></td>
+</tr>
+<tr style="height: 14px;">
+<td style="width: 20%; height: 14px;">If f selected</td>
+<td style="width: 80%; height: 14px;">
+<pre><span style="font-family: 'courier new', courier, sans-serif;"><span style="font-size: 9pt; color: black;">Enter the code for the item: </span><span style="font-size: 9pt; color: #009e0f;">&lt;must be an int&gt;<br /></span></span><span style="font-family: 'courier new', courier, sans-serif;"><span style="font-size: 9pt; color: black;">Enter the name for the item: </span><span style="font-size: 9pt; color: #009e0f;">&lt;can be any input&gt;<br /></span></span><span style="font-family: 'courier new', courier, sans-serif;"><span style="font-size: 9pt; color: black;">Enter the quantity for the item: </span><span style="font-size: 9pt; color: #009e0f;">&lt;must be a <span style="font-size: 9pt; color: #00c87d;"><span style="color: #009e0f;">positive</span></span> int&gt;<br /></span></span><span style="font-family: 'courier new', courier, sans-serif;"><span style="font-size: 9pt; color: black;">Enter the cost of the item: </span><span style="font-size: 9pt; color: #00c87d;"><span style="color: #009e0f;">&lt;must be a positive number&gt;</span><br /></span><span style="font-size: 9pt; color: black;">Enter the sales price of the item: </span><span style="font-size: 9pt; color: #009e0f;">&lt;must be a positive number&gt;<br /></span></span><span style="font-size: 9pt; font-family: 'courier new', courier, sans-serif; color: black;">Enter the name of the orchard supplier: <span style="font-size: 9pt; color: #009e0f;">&lt;can be any input&gt;</span></span></pre>
+</td>
+</tr>
+<tr style="height: 14px;">
+<td style="width: 20%; height: 14px;">If v selected</td>
+<td style="width: 80%; height: 14px;">
+<pre><span style="font-family: 'courier new', courier, sans-serif;"><span style="font-size: 9pt; color: black;">Enter the code for the item: </span><span style="font-size: 9pt; color: #009e0f;">&lt;must be an int&gt;<br /></span></span><span style="font-family: 'courier new', courier, sans-serif;"><span style="font-size: 9pt; color: black;">Enter the name for the item: </span><span style="font-size: 9pt; color: #009e0f;">&lt;can be any input&gt;<br /></span></span><span style="font-family: 'courier new', courier, sans-serif;"><span style="font-size: 9pt; color: black;">Enter the quantity for the item: </span><span style="font-size: 9pt; color: #009e0f;">&lt;must be a <span style="font-size: 9pt; color: #00c87d;"><span style="color: #009e0f;">positive</span></span> int&gt;<br /></span></span><span style="font-family: 'courier new', courier, sans-serif;"><span style="font-size: 9pt; color: black;">Enter the cost of the item: </span><span style="font-size: 9pt; color: #00c87d;"><span style="color: #009e0f;">&lt;must be a positive number&gt;</span><br /></span><span style="font-size: 9pt; color: black;">Enter the sales price of the item: </span><span style="font-size: 9pt; color: #009e0f;">&lt;must be a positive number&gt;<br /></span></span><span style="font-size: 9pt; font-family: 'courier new', courier, sans-serif; color: black;">Enter the name of the farm supplier: <span style="font-size: 9pt; color: #009e0f;">&lt;can be any input&gt;</span></span></pre>
+</td>
+</tr>
+<tr style="height: 14px;">
+<td style="width: 20%; text-align: left; vertical-align: middle; height: 14px;">If p selected</td>
+<td style="width: 80%; height: 14px; text-align: left; vertical-align: middle;">
+<pre><span style="font-family: 'courier new', courier, sans-serif;"><span style="font-size: 9pt; color: black;">Enter the code for the item: </span><span style="font-size: 9pt; color: #009e0f;">&lt;must be an int&gt;<br /></span></span><span style="font-family: 'courier new', courier, sans-serif;"><span style="font-size: 9pt; color: black;">Enter the name for the item: </span><span style="font-size: 9pt; color: #009e0f;">&lt;can be any input&gt;<br /></span></span><span style="font-family: 'courier new', courier, sans-serif;"><span style="font-size: 9pt; color: black;">Enter the quantity for the item: </span><span style="font-size: 9pt; color: #009e0f;">&lt;must be a <span style="font-size: 9pt; color: #00c87d;"><span style="color: #009e0f;">positive</span></span> int&gt;<br /></span></span><span style="font-family: 'courier new', courier, sans-serif;"><span style="font-size: 9pt; color: black;">Enter the cost of the item: </span><span style="font-size: 9pt; color: #00c87d;"><span style="color: #009e0f;">&lt;must be a positive number&gt;</span><br /></span><span style="font-size: 9pt; color: black;">Enter the sales price of the item: </span><span style="font-size: 9pt; color: #009e0f;">&lt;must be a positive number&gt;<br /></span></span><span style="font-size: 9pt; font-family: 'courier new', courier, sans-serif; color: black;">Enter the size of the jar in millilitres: <span style="font-family: 'courier new', courier, sans-serif;"><span style="font-size: 9pt; color: #009e0f;">&lt;must be a positive integer&gt;</span></span></span></pre>
+</td>
+</tr>
+<tr>
+<td style="width: 20%; text-align: left; vertical-align: middle;">If item code exists</td>
+<td style="width: 80%; text-align: left; vertical-align: middle;">
+<p><span style="font-family: 'courier new', courier, sans-serif; font-size: 9pt; color: black;">Enter the code for the item: <span style="font-size: 9pt; color: #009e0f;">&lt;must be an int&gt;</span><br />Item code already exists</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+If an invalid entry is entered, display the message "Invalid entry" and ask again for the same input.&nbsp; If the user tries to enter a code that already exists, an error message should be displayed, entry should not continue, the program should go back to the main menu and display it again.</li>
+<li>When '2' is chosen by the user, the content of the inventory array. Starting with the header "Inventory:" and then one item per line in the following format:
+<table style="height: 54px; width: 80%; border-style: solid; border-color: black;" border="1">
+<tbody>
+<tr style="height: 18px;">
+<td style="width: 20.0898%; height: 18px;">For a fruit item</td>
+<td style="width: 79.1245%; height: 18px;">Item: &lt;code&gt; &lt;name&gt; &lt;quantity&gt; price: $&lt;price&gt; cost: $&lt;cost&gt; orchard supplier: &lt;orchard&gt;</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 20.0898%; height: 18px;">For a vegetable item</td>
+<td style="width: 79.1245%; height: 18px;">Item: &lt;code&gt; &lt;name&gt; &lt;quantity&gt; price: $&lt;price&gt; cost: $&lt;cost&gt; farm supplier: &lt;farm&gt;</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 20.0898%; height: 18px;">For a preserve item</td>
+<td style="width: 79.1245%; height: 18px;">Item: &lt;code&gt; &lt;name&gt; &lt;quantity&gt; price: $&lt;price&gt; cost: $&lt;cost&gt; size: &lt;size in mL&gt;mL</td>
+</tr>
+</tbody>
+</table>
+Price and cost should be formatted to 2 decimal places.</li>
+<li>When '3' is chosen by the user, the program will ask the user to enter the code and then the quantity if the code is present in the inventory array. See table for full details:
+<table style="height: 74px; width: 80%; border-style: solid; border-color: black;" border="1">
+<tbody>
+<tr style="height: 46px;">
+<td style="width: 20.202%; height: 46px;">When code doesn't exist</td>
+<td style="width: 79.0124%; height: 46px;">
+<pre><span style="font-size: 9pt; font-family: 'Courier New'; color: black;">Enter valid item code: </span><span style="font-size: 9pt; font-family: 'Courier New'; color: #009e0f;">&lt;accept any input&gt;</span><br /><span style="font-size: 9pt; font-family: 'Courier New'; color: black;">Code not found in inventory...</span><br /><span style="font-size: 9pt; font-family: 'Courier New'; color: black;">Error...could not buy item</span></pre>
+</td>
+</tr>
+<tr style="height: 14px;">
+<td style="width: 20.202%; height: 14px;">When code is found</td>
+<td style="width: 79.0124%; height: 14px;">
+<pre><span style="font-family: 'courier new', courier, sans-serif;">Enter valid item code: <span style="font-size: 9pt; font-family: 'Courier New'; color: #009e0f;">&lt;code that exists&gt;</span></span><br /><span style="font-family: 'courier new', courier, sans-serif;">Enter valid quantity to buy: <span style="font-size: 9pt; font-family: 'courier new', courier, sans-serif; color: black;"><span style="font-size: 9pt; color: #009e0f;">&lt;must be a positive integer&gt;</span></span></span></pre>
+</td>
+</tr>
+<tr style="height: 14px;">
+<td style="width: 20.202%; height: 14px;">If quantity is not valid</td>
+<td style="width: 79.0124%; height: 14px;">
+<pre><span style="font-family: 'courier new', courier, sans-serif;">Enter valid item code: <span style="font-size: 9pt; font-family: 'Courier New'; color: #009e0f;">&lt;code that exists&gt;</span></span><br /><span style="font-family: 'courier new', courier, sans-serif;">Enter valid quantity to buy: <span style="font-size: 9pt; font-family: 'courier new', courier, sans-serif; color: black;"><span style="font-size: 9pt; color: #009e0f;">&lt;anything other than a positive integer&gt;<br /><span style="color: #000000;">Invalid quantity...<br /><span style="font-size: 9pt; font-family: 'Courier New'; color: black;">Error...could not buy item</span></span></span></span></span>
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+When no errors are encountered, the quantity for the item with the specified code is increased by the amount the user specified.&nbsp;&nbsp;</li>
+<li>When '4' is chosen by the user,&nbsp;the program will ask the user to enter the code and then the quantity if the code is present in the inventory array. See table for full details:
+<table style="height: 178px; width: 80%; border-style: solid; border-color: black;" border="1">
+<tbody>
+<tr style="height: 46px;">
+<td style="width: 20.202%; height: 46px;">When code doesn't exist</td>
+<td style="width: 79.0124%; height: 46px;">
+<pre><span style="font-size: 9pt; font-family: 'Courier New'; color: black;">Enter valid item code: </span><span style="font-size: 9pt; font-family: 'Courier New'; color: #009e0f;">&lt;accept any input&gt;</span><br /><span style="font-size: 9pt; font-family: 'Courier New'; color: black;">Code not found in inventory...</span><br /><span style="font-size: 9pt; font-family: 'Courier New'; color: black;">Error...could not sell item</span></pre>
+</td>
+</tr>
+<tr style="height: 14px;">
+<td style="width: 20.202%; height: 14px;">When code is found</td>
+<td style="width: 79.0124%; height: 14px;">
+<pre><span style="font-family: 'courier new', courier, sans-serif;">Enter valid item code: <span style="font-size: 9pt; font-family: 'Courier New'; color: #009e0f;">&lt;code that exists&gt;</span></span><br /><span style="font-family: 'courier new', courier, sans-serif;">Enter valid quantity to sell: <span style="font-size: 9pt; font-family: 'courier new', courier, sans-serif; color: black;"><span style="font-size: 9pt; color: #009e0f;">&lt;must be a positive integer&gt;</span></span></span></pre>
+</td>
+</tr>
+<tr style="height: 14px;">
+<td style="width: 20.202%; height: 14px;">If quantity is not valid</td>
+<td style="width: 79.0124%; height: 14px;">
+<pre><span style="font-family: 'courier new', courier, sans-serif;">Enter valid item code: <span style="font-size: 9pt; font-family: 'Courier New'; color: #009e0f;">&lt;code that exists&gt;</span></span><br /><span style="font-family: 'courier new', courier, sans-serif;">Enter valid quantity to sell: <span style="font-size: 9pt; font-family: 'courier new', courier, sans-serif; color: black;"><span style="font-size: 9pt; color: #009e0f;">&lt;anything other than a positive integer&gt;<br /><span style="color: #000000;">Invalid quantity...<br /><span style="font-size: 9pt; font-family: 'Courier New'; color: black;">Error...could not sell item</span></span><br /></span></span></span></pre>
+</td>
+</tr>
+<tr style="height: 104px;">
+<td style="width: 20.202%; height: 104px;">If quantity too large</td>
+<td style="width: 79.0124%; height: 104px;">
+<pre><span style="font-family: 'courier new', courier, sans-serif;">Enter valid item code: <span style="font-size: 9pt; font-family: 'Courier New'; color: #009e0f;">&lt;code that exists&gt;</span><br />Enter valid quantity to sell: <span style="font-size: 9pt; font-family: 'courier new', courier, sans-serif; color: black;"><span style="font-size: 9pt; color: #009e0f;">&lt;anything other than a positive integer&gt;<br /><span style="color: #000000;">Insufficient stock in inventory...<br /><span style="font-size: 9pt; font-family: 'Courier New'; color: black;">Error...could not sell item</span></span></span></span></span></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>When '5' is chosen by the user, the message "Exiting..." is displayed and the program terminates.</li>
+</ol>
+<h1><strong>Efficiency Considerations</strong></h1>
+<p>The way you allocate, initialize, add to and access the inventory array<br />Example - Create one Scanner connected to keyboard in main &ndash; and pass it to methods across various classes.</p>
+<p></p>
+<h1>Submission</h1>
+<p>You must submit to the <a href="/d2l/lms/dropbox/admin/mark/folder_submissions_users.d2l?db=323677&amp;ou=350477" target="_blank" rel="noopener">assignment link</a>&nbsp;in Brightspace by the due date and time.&nbsp; Your submission should follow the <a href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=227138&amp;type=content&amp;rcode=5D0A62E3-9FCD-4186-8FE2-4DAA73394FE0-1439595" target="_self">Submission Checklist</a></p>
+<ul>
+<li>All source code &ndash; ie .java files with headers
+<ul>
+<li><strong>NOTE</strong>:&nbsp;we will re-compile and run your program&hellip;.so all code must be available to us and&nbsp;<strong>MUST NOT</strong>&nbsp;be in a package.</li>
+<li>Headers should contain name, student number, assignment number, date, purpose of class</li>
+</ul>
+</li>
+<li>Javadoc:
+<ul>
+<li>A description of each data member and method should be described using Javadoc notation</li>
+<li>Generate the Javadoc for your solution and upload a zip of the generated folder with a member visibility of Private
+<ul>
+<li>In Eclipse, go to Project-&gt;Generate Javadoc, select your project and "Create Javadoc for members with Visibility: Private" then click Finish.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Test plan
+<ul>
+<li>Can be in word or pdf format</li>
+<li>Should contain positive and negative testing (sometimes called happy path and unhappy path)</li>
+<li>You should indicate which tests your program passes and which one fails</li>
+</ul>
+</li>
+</ul>
+<p>Failure to provide any of the above will have an effect on your grade for this assignment.&nbsp; The assignment rubric will be published with the assignment submission link by the end of the week.</p>
+<p></p>
+<h1>Sample Output:&nbsp;<span style="color: #009e0f;">green is user input</span></h1>
+<pre>Please select one of the following:<br />1: Add Item to Inventory<br />2: Display Current Inventory<br />3: Buy Item(s)<br />4: Sell Item(s)<br />5: To Exit<br />&gt; <span style="color: #009e0f;">2</span><br />Inventory:<br /><br />Please select one of the following:<br />1: Add Item to Inventory<br />2: Display Current Inventory<br />3: Buy Item(s)<br />4: Sell Item(s)<br />5: To Exit<br />&gt; <span style="color: #009e0f;">3</span><br />Error...could not buy item<br />Please select one of the following:<br />1: Add Item to Inventory<br />2: Display Current Inventory<br />3: Buy Item(s)<br />4: Sell Item(s)<br />5: To Exit<br />&gt; <span style="color: #009e0f;">4</span><br />Error...could not sell item<br />Please select one of the following:<br />1: Add Item to Inventory<br />2: Display Current Inventory<br />3: Buy Item(s)<br />4: Sell Item(s)<br />5: To Exit<br />&gt; <span style="color: #009e0f;">1</span><br />Do you wish to add a fruit(f), vegetable(v) or a preserve(p)? <span style="color: #009e0f;">w</span><br />Invalid entry<br />Do you wish to add a fruit(f), vegetable(v) or a preserve(p)? <span style="color: #009e0f;">1</span><br />Invalid entry<br />Do you wish to add a fruit(f), vegetable(v) or a preserve(p)? <span style="color: #009e0f;">f</span><br />Enter the code for the item: <span style="color: #009e0f;">111</span><br />Enter the name for the item: <span style="color: #009e0f;">Granny Smith Apple</span><br />Enter the quantity for the item: <span style="color: #009e0f;">30</span><br />Enter the cost of the item: <span style="color: #009e0f;">.10</span><br />Enter the sales price of the item: <span style="color: #009e0f;">.25</span><br />Enter the name of the orchard supplier: <span style="color: #009e0f;">Apple Orchard</span><br />Please select one of the following:<br />1: Add Item to Inventory<br />2: Display Current Inventory<br />3: Buy Item(s)<br />4: Sell Item(s)<br />5: To Exit<br />&gt; <span style="color: #009e0f;">2</span><br />Inventory:<br />Item: 111 Granny Smith Apple 30 price: $0.25 cost: $0.10 orchard supplier: Apple Orchard<br /><br />Please select one of the following:<br />1: Add Item to Inventory<br />2: Display Current Inventory<br />3: Buy Item(s)<br />4: Sell Item(s)<br />5: To Exit<br />&gt; <span style="color: #009e0f;">1</span><br />Do you wish to add a fruit(f), vegetable(v) or a preserve(p)? <span style="color: #009e0f;">v</span><br />Enter the code for the item: <span style="color: #009e0f;">222</span><br />Enter the name for the item: <span style="color: #009e0f;">Orange Carrot</span><br />Enter the quantity for the item: <span style="color: #009e0f;">100</span><br />Enter the cost of the item: <span style="color: #009e0f;">.25</span><br />Enter the sales price of the item: <span style="color: #009e0f;">1.00</span><br />Enter the name of the farm supplier: <span style="color: #009e0f;">McDonald's Farm</span><br />Please select one of the following:<br />1: Add Item to Inventory<br />2: Display Current Inventory<br />3: Buy Item(s)<br />4: Sell Item(s)<br />5: To Exit<br />&gt; <span style="color: #009e0f;">1</span><br />Do you wish to add a fruit(f), vegetable(v) or a preserve(p)? <span style="color: #009e0f;">p</span><br />Enter the code for the item: <span style="color: #009e0f;">333</span><br />Enter the name for the item: <span style="color: #009e0f;">Raspberry Jam</span><br />Enter the quantity for the item: <span style="color: #009e0f;">10</span><br />Enter the cost of the item: <span style="color: #009e0f;">4.50</span><br />Enter the sales price of the item: <span style="color: #009e0f;">5.50</span><br />Enter the size of the jar in millilitres: <span style="color: #009e0f;">500</span><br />Please select one of the following:<br />1: Add Item to Inventory<br />2: Display Current Inventory<br />3: Buy Item(s)<br />4: Sell Item(s)<br />5: To Exit<br />&gt; <span style="color: #009e0f;">1</span><br />Do you wish to add a fruit(f), vegetable(v) or a preserve(p)? <span style="color: #009e0f;">f</span><br />Enter the code for the item: <span style="color: #009e0f;">ee</span><br />Invalid code<br />Enter the code for the item: <span style="color: #009e0f;">-123</span><br />Enter the name for the item: <span style="color: #009e0f;">Test</span><br />Enter the quantity for the item: <span style="color: #009e0f;">ee</span><br />Invalid entry<br />Enter the quantity for the item: <span style="color: #009e0f;">-19</span><br />Invalid entry<br />Enter the quantity for the item: <span style="color: #009e0f;">20</span><br />Enter the cost of the item: <span style="color: #009e0f;">-3</span><br />Invalid entry<br />Enter the cost of the item: <span style="color: #009e0f;">h</span><br />Invalid entry<br />Enter the cost of the item: <span style="color: #009e0f;">3.4</span><br />Enter the sales price of the item: <span style="color: #009e0f;">-9</span><br />Invalid entry<br />Enter the sales price of the item: <span style="color: #009e0f;">e</span><br />Invalid entry<br />Enter the sales price of the item: <span style="color: #009e0f;">!</span><br />Invalid entry<br />Enter the sales price of the item: <span style="color: #009e0f;">3.50</span><br />Enter the name of the orchard supplier: <span style="color: #009e0f;">Test Orchard</span><br />Please select one of the following:<br />1: Add Item to Inventory<br />2: Display Current Inventory<br />3: Buy Item(s)<br />4: Sell Item(s)<br />5: To Exit<br />&gt; <span style="color: #009e0f;">2</span><br />Inventory:<br />Item: 111 Granny Smith Apple 30 price: $0.25 cost: $0.10 orchard supplier: Apple Orchard<br />Item: 222 Orange Carrot 100 price: $1.00 cost: $0.25 farm supplier: McDonald's Farm<br />Item: 333 Raspberry Jam 10 price: $5.50 cost: $4.50 size: 500mL<br />Item: -123 Test 20 price: $3.50 cost: $3.40 orchard supplier: Test Orchard<br /><br />Please select one of the following:<br />1: Add Item to Inventory<br />2: Display Current Inventory<br />3: Buy Item(s)<br />4: Sell Item(s)<br />5: To Exit<br />&gt; <span style="color: #009e0f;">3</span><br />Enter the code for the item: <span style="color: #009e0f;">444</span><br />Error...could not buy item<br />Please select one of the following:<br />1: Add Item to Inventory<br />2: Display Current Inventory<br />3: Buy Item(s)<br />4: Sell Item(s)<br />5: To Exit<br />&gt; <span style="color: #009e0f;">3</span><br />Enter the code for the item: <span style="color: #009e0f;">111</span><br />Enter valid quantity to buy: <span style="color: #009e0f;">20</span><br />Please select one of the following:<br />1: Add Item to Inventory<br />2: Display Current Inventory<br />3: Buy Item(s)<br />4: Sell Item(s)<br />5: To Exit<br />&gt; <span style="color: #009e0f;">4</span><br />Enter the code for the item: <span style="color: #009e0f;">333</span><br />Enter valid quantity to sell: <span style="color: #009e0f;">15</span><br />Error...could not sell item<br />Please select one of the following:<br />1: Add Item to Inventory<br />2: Display Current Inventory<br />3: Buy Item(s)<br />4: Sell Item(s)<br />5: To Exit<br />&gt; <span style="color: #009e0f;">4</span><br />Enter the code for the item: <span style="color: #009e0f;">333</span><br />Enter valid quantity to sell: <span style="color: #009e0f;">9</span><br />Please select one of the following:<br />1: Add Item to Inventory<br />2: Display Current Inventory<br />3: Buy Item(s)<br />4: Sell Item(s)<br />5: To Exit<br />&gt; <span style="color: #009e0f;">2</span><br />Inventory:<br />Item: 111 Granny Smith Apple 50 price: $0.25 cost: $0.10 orchard supplier: Apple Orchard<br />Item: 222 Orange Carrot 100 price: $1.00 cost: $0.25 farm supplier: McDonald's Farm<br />Item: 333 Raspberry Jam 1 price: $5.50 cost: $4.50 size: 500mL<br />Item: -123 Test 20 price: $3.50 cost: $3.40 orchard supplier: Test Orchard<br /><br />Please select one of the following:<br />1: Add Item to Inventory<br />2: Display Current Inventory<br />3: Buy Item(s)<br />4: Sell Item(s)<br />5: To Exit<br />&gt; <span style="color: #009e0f;">5</span><br />Exiting...</pre>
+</body>
+</html>
